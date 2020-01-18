@@ -115,7 +115,6 @@ function processProduct(num1, num2, callback) {
   return callback(num1 * num2);
 }
 
-
 /**
  * ### Challenge `processContains`
  * 
@@ -136,8 +135,12 @@ function processProduct(num1, num2, callback) {
  * "lady gaga" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`,
  * should return "sad".
 */
-function processContains(/* CODE HERE */) {
-  /* CODE HERE */
+function processContains(item, list, callback) {
+  if (list.includes(item)){
+    return callback(true);
+  } else {
+    return false;
+  }
 }
 
 /**
@@ -159,12 +162,8 @@ function processContains(/* CODE HERE */) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processContains(item, list, callback) {
-  if (list.includes(item)){
-    return callback(true);
-  } else {
-    return false;
-  }
+function processDuplicateFree(list, callback) {
+  return callback([...new Set(list)]);
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -186,12 +185,12 @@ function processContains(item, list, callback) {
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
 function getFullNames(runners) {
-  let fullNames = [];
-  runners.forEach((curVal) => {
-    return fullNames.push(`${curVal.last_name}, ${curVal.first_name}`);
-  });
-  return fullNames;
- }
+ let fullNames = [];
+ runners.forEach((curVal) => {
+   return fullNames.push(`${curVal.last_name}, ${curVal.first_name}`);
+ });
+ return fullNames;
+}
 
 /**
  * ### Challenge `firstNamesAllCaps`
@@ -274,6 +273,7 @@ function counterMaker() {
   return counter;
   // BROKEN CODE ENDS
 }
+
 
 /**
  * ### Challenge `counterMakerWithLimit`
